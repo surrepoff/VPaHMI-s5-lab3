@@ -22,11 +22,11 @@ void DocWindow_Bessonov_Miheev::slotLoad(){
         file.close();
 
         m_strFileName = str;
-        emit changeWindowTitle(m_strFilename);
+        emit changeWindowTitle(m_strFileName);
     }
 }
 
-void DocWindow_Bessonov_Miheev::sloteSaveAs()
+void DocWindow_Bessonov_Miheev::slotSaveAs()
 {
     QString str = QFileDialog::getSaveFileName(0, m_strFileName);
     if (!str.isEmpty()){

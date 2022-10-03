@@ -10,7 +10,9 @@ SDIProgram_Bessonov_Miheev::SDIProgram_Bessonov_Miheev(QWidget *parent) :
 }
 */
 
+/*
 SDIProgram_Bessonov_Miheev::~SDIProgram_Bessonov_Miheev()
 {
     delete ui;
 }
+*/

@@ -23,7 +23,7 @@ public:
     {
         QMenu* pmnuFile = new QMenu("&File");
         QMenu* pmnuHelp = new QMenu("&Help");
-        DocWindow* pdoc = new DocWindow;
+        DocWindow_Bessonov_Miheev* pdoc = new DocWindow_Bessonov_Miheev;
 
         pmnuFile->addAction("&Open...",pdoc,SLOT(slotLoad()),QKeySequence("CTRL+O"));
         pmnuFile->addAction("&Save",pdoc,SLOT(slotSave()),QKeySequence("CTRL+S"));
@@ -31,24 +31,27 @@ public:
 
         pmnuFile->addSeparator();
 
-        pmnuFile->addAction("&Quit",qApp,SLOT(quit()),QKeySequence("CTRL+Q"));
-        pmnuFile->addAction("&About",this,SLOT(slotAbout()),Qt::Key_F1);
+        pmnuFile->addAction("&Color", pdoc, SLOT(slotColor()));
 
-        MenuBar()->addMenu(pmnuFile);
-        MenuBar()->addMenu(pmnuHelp);
+        pmnuFile->addSeparator();
+
+        pmnuFile->addAction("&Quit",qApp,SLOT(quit()),QKeySequence("CTRL+Q"));
+
+        pmnuHelp->addAction("&About",this,SLOT(slotAbout()),Qt::Key_F1);
+
+        menuBar()->addMenu(pmnuFile);
+        menuBar()->addMenu(pmnuHelp);
 
         setCentralWidget(pdoc);
 
         connect(pdoc, SIGNAL(changeWindowTitle(const QString&)),SLOT(slotChangeWindowTitle(const QString&)));
         statusBar()->showMessage("Ready", 2000);
-
-        pmnuFile->addAction("&Color", pdoc, SLOT(slotColor()));
     }
 
 public slots:
     void slotAbout()
     {
-        QMessageBox::about(this, "Application", "Bessonov, Miheev");
+        QMessageBox::about(this, "About", "IP-014 Bessonov\nIP-014 Miheev");
     }
 
     void slotChangeWindowTitle(const QString& str)
@@ -58,6 +61,6 @@ public slots:
 
 private:
     Ui::SDIProgram_Bessonov_Miheev *ui;
-}
+};
 
 #endif // SDIPROGRAM_BESSONOV_MIHEEV_H

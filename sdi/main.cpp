@@ -25,7 +25,7 @@ void loadModules(QSplashScreen* psplash)
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QSplashScreen splash(QPixmap("1.jpg"));
+    QSplashScreen splash(QPixmap("../s.png"));
     splash.show();
     SDIProgram_Bessonov_Miheev w;
     loadModules(&splash);
